@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "926095645558",
+    "firebase_url": "https://inclass10-41cc7.firebaseio.com",
+    "project_id": "inclass10-41cc7",
+    "storage_bucket": "inclass10-41cc7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926095645558:android:e258787d3a6ac693",
+        "android_client_info": {
+          "package_name": "com.example.tristan.inclass10"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926095645558-t2asgb5mi936quslkde22j9l4agdqu2h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATtuIxAzfkFCE63B0tbmjl1flYWx9jA8c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
