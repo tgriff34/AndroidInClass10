@@ -31,7 +31,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="30dp"
-        android:text="Hello! "
+        android:textSize="9pt"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/listView"
         app:layout_constraintLeft_toLeftOf="parent" />

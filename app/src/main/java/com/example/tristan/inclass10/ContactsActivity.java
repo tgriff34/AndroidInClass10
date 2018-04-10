@@ -54,12 +54,10 @@ public class ContactsActivity extends AppCompatActivity {
         currentUser = (TextView) findViewById(R.id.currentUserView);
         addContact = (Button) findViewById(R.id.addContactButton);
         listView = (ListView) findViewById(R.id.listView);
-        listView.setEmptyView(findViewById(R.id.currentUserView));
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         user = mAuth.getCurrentUser();
-        currentUser.setText(user.getDisplayName());
 
         getContactView();
         addContact.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +103,6 @@ public class ContactsActivity extends AppCompatActivity {
 
                 adapter = new ContactAdapter(ContactsActivity.this, 0, contacts);
                 listView.setAdapter(adapter);
-                //currentUser.setText("Hello! " + userName);
             }
 
             @Override
@@ -113,6 +110,7 @@ public class ContactsActivity extends AppCompatActivity {
 
             }
         });
+        currentUser.setText("Hello! " + user.getDisplayName());
     }
 
     public void deleteContact(int position) {
