@@ -100,8 +100,6 @@ public class NewContactActivity extends AppCompatActivity {
                     contactImageButton.setImageBitmap(userBitmap);
                 }
             });
-
-
             addContact.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -110,15 +108,12 @@ public class NewContactActivity extends AppCompatActivity {
                 }
             });
         }
-
         contactImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 pickImage();
             }
         });
-
-
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -140,10 +135,6 @@ public class NewContactActivity extends AppCompatActivity {
         Contact contact = new Contact("id_" + currentId, firstName.getText().toString() + " " + lastName.getText().toString(), phone.getText().toString(), email.getText().toString(), path);
         mDatabase.child("contacts").child(user.getUid()).child("id_" + currentId).setValue(contact);
         uploadUserImageToStorage(userBitmap);
-
-        Intent intent = new Intent(NewContactActivity.this, ContactsActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     private void editContact(Contact contact) {
@@ -156,10 +147,6 @@ public class NewContactActivity extends AppCompatActivity {
         currentId = Integer.parseInt(split[1]);
         mDatabase.updateChildren(childUpdate);
         uploadUserImageToStorage(userBitmap);
-
-        Intent intent = new Intent(NewContactActivity.this, ContactsActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     private void getContactView() {
@@ -174,7 +161,6 @@ public class NewContactActivity extends AppCompatActivity {
                 currentId = contacts.size();
                 currentId = updateId(currentId, contacts);
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -188,7 +174,6 @@ public class NewContactActivity extends AppCompatActivity {
                 id++;
             }
         }
-
         return id;
     }
 
@@ -204,8 +189,6 @@ public class NewContactActivity extends AppCompatActivity {
                 || TextUtils.isEmpty(emailCheck) || TextUtils.isEmpty(phoneCheck) || userBitmap == null) {
             valid = false;
         }
-
-
         return valid;
     }
 
@@ -265,7 +248,14 @@ public class NewContactActivity extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Log.d("demo", "Contact Image Successfully Uploaded");
+                displayContactActivity();
             }
         });
+    }
+
+    private void displayContactActivity() {
+        Intent intent = new Intent(NewContactActivity.this, ContactsActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
